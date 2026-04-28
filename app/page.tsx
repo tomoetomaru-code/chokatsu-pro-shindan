@@ -5,7 +5,9 @@ import { useState } from 'react'
 const LINE_URL = 'https://lin.ee/XXXXXXX'
 const NOTE_URL = 'https://note.com/XXXXXXX'
 
-const questions = [
+type CatKey = 'fukurami' | 'tamekoml' | 'binkan' | 'kimagure'
+
+const questions: { id: number; text: string; cat: CatKey }[] = [
   { id: 1, text: '便秘（3日以上排便がない）が週に1回以上ありますか？', cat: 'tamekoml' },
   { id: 2, text: '食後にお腹が張る・膨らむ感じがしますか？', cat: 'fukurami' },
   { id: 3, text: 'ストレスを感じるとお腹の調子が悪くなりますか？', cat: 'binkan' },
@@ -38,7 +40,18 @@ const questions = [
   { id: 30, text: '腸の調子を改善しようと様々なことを試していますか？', cat: 'tamekoml' },
 ]
 
-const types = {
+type TypeInfo = {
+  name: string
+  emoji: string
+  color: string
+  desc: string
+  symptoms: string[]
+  good: string[]
+  bad: string[]
+  steps: string[]
+}
+
+const types: Record<CatKey, TypeInfo> = {
   fukurami: { name: '膨らみ型', emoji: '🎈', color: '#f97316',
     desc: '食後にお腹が張る・ガスが溜まりやすいタイプです。腸内での発酵・ガス産生が過剰になっています。',
     symptoms: ['食後のお腹の張り', 'げっぷ・おなら過多', '腹部膨満感'],
@@ -70,11 +83,11 @@ const types = {
 }
 
 export default function Home() {
-  const [step, setStep] = useState('top')
+  const [step, setStep] = useState<'top' | 'quiz' | 'result'>('top')
   const [q, setQ] = useState(0)
-  const [answers, setAnswers] = useState({})
+  const [answers, setAnswers] = useState<Record<number, number>>({})
 
-  function handleAnswer(val) {
+  function handleAnswer(val: number) {
     const newAns = { ...answers, [q]: val }
     setAnswers(newAns)
     if (q < questions.length - 1) {
@@ -85,9 +98,9 @@ export default function Home() {
   }
 
   function calcResult() {
-    const s = { fukurami: 0, tamekoml: 0, binkan: 0, kimagure: 0 }
-    questions.forEach((qs, i) => { s[qs.cat] = (s[qs.cat] || 0) + (answers[i] || 0) })
-    const sorted = Object.entries(s).sort((a, b) => b[1] - a[1])
+    const s: Record<CatKey, number> = { fukurami: 0, tamekoml: 0, binkan: 0, kimagure: 0 }
+    questions.forEach((qs, i) => { s[qs.cat] = s[qs.cat] + (answers[i] ?? 0) })
+    const sorted = (Object.entries(s) as [CatKey, number][]).sort((a, b) => b[1] - a[1])
     return { main: sorted[0][0], sub: sorted[1][0], scores: s }
   }
 
