@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-const LINE_URL = 'https://lin.ee/XXXXXXX'
+const LINE_URL = 'https://lin.ee/TzDjpAxf'
 const NOTE_URL = 'https://note.com/XXXXXXX'
 
 type CatKey = 'fukurami' | 'tamekoml' | 'binkan' | 'kimagure'
@@ -59,7 +59,7 @@ const questions: Question[] = [
   { id: 24, text: '水分をあまり飲まない（1日1L未満）ですか？',               cat: 'tamekoml', qcat: 'seikatsu' },
   // 食生活に関する質問 (6問)
   { id: 25, text: '野菜を1日に小鉢3皿分以上食べられていないですか？',              cat: 'tamekoml', qcat: 'shokuji' },
-  { id: 26, text: '発酵食品（ヨーグルト・味噌・納豆など）を毎日食べていませんか？', cat: 'fukurami', qcat: 'shokuji' },
+  { id: 26, text: '発酵食品（ヨーグルト・味噌・納豆など）をほとんど食べない日が多いですか？', cat: 'fukurami', qcat: 'shokuji' },
   { id: 27, text: '揚げ物や脂っこい食事が週4回以上ありますか？',                   cat: 'kimagure', qcat: 'shokuji' },
   { id: 28, text: '食事を抜くことが週2回以上ありますか？',                          cat: 'kimagure', qcat: 'shokuji' },
   { id: 29, text: '甘いもの（お菓子・ジュース）を毎日摂取しますか？',               cat: 'binkan',   qcat: 'shokuji' },
