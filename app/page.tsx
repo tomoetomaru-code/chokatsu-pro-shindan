@@ -651,42 +651,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ── 30日プログラム CTA ── */}
-          <div style={{background:`linear-gradient(135deg,${GREEN} 0%,#1A4D35 100%)`,borderRadius:20,padding:'26px 18px',marginBottom:14}}>
-            <div style={{textAlign:'center',fontSize:34,marginBottom:12}}>🌟</div>
-            <p style={{fontSize:14,color:'rgba(255,255,255,0.92)',lineHeight:2,marginBottom:14,textAlign:'center'}}>
-              今までダイエットを頑張っても続かなかった。<br/>
-              食事制限が辛くてできなかった。<br/>
-              運動習慣がなくダイエットがうまくいかなかった。<br/>
-              <br/>
-              <strong style={{fontSize:16,color:'white'}}>そんな方でも大丈夫！</strong><br/>
-              <br/>
-              ムリな運動、食事制限は必要なし！<br/>
-              自分の腸のタイプにあった方法を知って、<br/>
-              今までよりも簡単に無理なく痩せられたら…<br/>
-              <strong style={{color:'#B7E4C7'}}>最高じゃないですか？</strong>
-            </p>
-            <p style={{fontSize:14,color:'rgba(255,255,255,0.9)',lineHeight:1.9,marginBottom:18,textAlign:'center'}}>
-              今までダイエットがうまくいかなかったのは、<br/>
-              <strong style={{color:'white'}}>あなたの意思のせいじゃないんです。</strong><br/>
-              ちょっと方法が違っただけ。
-            </p>
-            <div style={{background:'rgba(255,255,255,0.15)',borderRadius:14,padding:'16px',marginBottom:18,textAlign:'center'}}>
-              <p style={{fontWeight:800,fontSize:17,color:'white',lineHeight:1.6,margin:0}}>３０日プログラムで<br/>今年こそは変化を起こしましょう！</p>
-            </div>
-            <div style={{background:'white',borderRadius:14,padding:'16px'}}>
-              <p style={{fontSize:11,color:'#888',fontWeight:700,textAlign:'center',marginBottom:6}}>腸からやせる30日間プログラム</p>
-              <p style={{fontSize:13,color:'#222',fontWeight:700,textAlign:'center',marginBottom:12,lineHeight:1.5}}>腸内フローラを根本から整えながら<br/>脂肪燃焼体質を作る30日間</p>
-              <div style={{display:'flex',flexDirection:'column',gap:7}}>
-                {['タイプ別動画3本（合計55〜60分）','タイプ別改善プランPDF付き','自分のタイプに特化した実践内容','買い切り・期限なし・いつでも視聴OK'].map(f=>(
-                  <div key={f} style={{display:'flex',alignItems:'center',gap:8,fontSize:13,color:'#333'}}>
-                    <span style={{width:18,height:18,background:GREEN,borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:10,color:'white',flexShrink:0}}>✓</span>{f}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
           <div style={{textAlign:'center',marginBottom:24}}>
             <button onClick={()=>{setScreen('start');setCurrent(0);setAnswers(new Array(30).fill(-1));setResultData(null);}} style={{background:'none',border:'none',fontSize:13,color:'#999',textDecoration:'underline',cursor:'pointer'}}>
               もう一度診断する
